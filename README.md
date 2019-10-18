@@ -1,3 +1,7 @@
+# Note
+
+This is a modified RefactoringMiner for mining refactoring activities and **extract refactored files**
+
 Table of Contents
 =================
 
