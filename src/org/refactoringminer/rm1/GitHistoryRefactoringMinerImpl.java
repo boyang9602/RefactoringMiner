@@ -185,7 +185,7 @@ public class GitHistoryRefactoringMinerImpl implements GitHistoryRefactoringMine
 				//logger.info(String.format("Ignored revision %s with no changes in java files", commitId));
 				refactoringsAtRevision = Collections.emptyList();
 			}
-			handler.handle(commitId, refactoringsAtRevision);
+			handler.handle(commitId, refactoringsAtRevision, fileContentsBefore);
 			
 			walk.dispose();
 		}
