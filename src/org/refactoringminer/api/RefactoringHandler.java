@@ -1,6 +1,7 @@
 package org.refactoringminer.api;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Handler object that works in conjunction with {@link org.refactoringminer.api.GitHistoryRefactoringMiner}.
@@ -26,6 +27,7 @@ public abstract class RefactoringHandler {
 	 * @param commitId The sha of the analyzed commit.
 	 * @param refactorings List of refactorings detected in the commit.
 	 */
+	public void handle(String commitId, List<Refactoring> refactorings) {}
 	public void handle(String commitId, List<Refactoring> refactorings, Map<String, String> fileContentsBefore, Map<String, String> fileContentsCurrent) {}
 
 	/**
