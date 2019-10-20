@@ -1,6 +1,6 @@
 # Note
 
-This is a modified RefactoringMiner for mining refactoring activities and **extract refactored files**  
+This is a modified [RefactoringMiner](https://github.com/tsantalis/RefactoringMiner) for mining refactoring activities and **extract refactored files**  
 It adds a `public void handle(String commitId, List<Refactoring> refactorings, Map<String, String> fileContentsBefore, Map<String, String> fileContentsCurrent)` interface in `RefactoringHandler` to support getting source code.  
 
 Table of Contents
