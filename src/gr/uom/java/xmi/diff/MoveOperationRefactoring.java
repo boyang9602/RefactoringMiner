@@ -12,6 +12,8 @@ import gr.uom.java.xmi.UMLOperation;
 import gr.uom.java.xmi.decomposition.UMLOperationBodyMapper;
 import gr.uom.java.xmi.decomposition.replacement.Replacement;
 
+import org.json.JSONObject;
+
 public class MoveOperationRefactoring implements Refactoring {
 	protected UMLOperation originalOperation;
 	protected UMLOperation movedOperation;
@@ -43,6 +45,17 @@ public class MoveOperationRefactoring implements Refactoring {
 		sb.append(movedOperation.getClassName());
 		return sb.toString();
 	}
+
+	public String toJSON() {
+		JSONObject jObj = new JSONObject();
+		jObj.put("type", getName());
+		jObj.put("original method", originalOperation.toJSON());
+		jObj.put("original class", originalOperation.getClassName());
+		jObj.put("new method", movedOperation.toJSON());
+		jObj.put("new class", movedOperation.getClassName());
+		return jObj.toString();
+	}
+
 
 	public String getName() {
 		return this.getRefactoringType().getDisplayName();

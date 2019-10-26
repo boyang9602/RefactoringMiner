@@ -12,6 +12,8 @@ import gr.uom.java.xmi.UMLOperation;
 import gr.uom.java.xmi.decomposition.AbstractCodeMapping;
 import gr.uom.java.xmi.decomposition.VariableDeclaration;
 
+import org.json.JSONObject;
+
 public class ExtractVariableRefactoring implements Refactoring {
 	private VariableDeclaration variableDeclaration;
 	private UMLOperation operation;
@@ -56,6 +58,15 @@ public class ExtractVariableRefactoring implements Refactoring {
 		sb.append(" from class ");
 		sb.append(operation.getClassName());
 		return sb.toString();
+	}
+
+	public String toJSON() {
+		JSONObject jObj = new JSONObject();
+		jObj.put("type", getName());
+		jObj.put("variable", variableDeclaration);
+		jObj.put("method", operation.toJSON());
+		jObj.put("class", operation.getClassName());
+		return jObj.toString();
 	}
 
 	/**

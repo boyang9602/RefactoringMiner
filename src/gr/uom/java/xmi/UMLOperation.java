@@ -20,6 +20,9 @@ import java.util.Set;
 
 import org.refactoringminer.util.AstUtils;
 
+import org.json.JSONObject;
+import org.json.JSONArray;
+
 public class UMLOperation implements Comparable<UMLOperation>, Serializable, LocationInfoProvider {
 	private LocationInfo locationInfo;
 	private String name;
@@ -517,6 +520,30 @@ public class UMLOperation implements Comparable<UMLOperation>, Serializable, Loc
 			sb.append(returnParameter.toString());
 		}
 		return sb.toString();
+	}
+
+	public String toJSON() {
+		JSONObject jObj = new JSONObject();
+		jObj.put("visibility", visibility);
+		jObj.put("abstract", isAbstract);
+		jObj.put("name", name);
+
+		UMLParameter returnParameter = getReturnParameter();
+		List<UMLParameter> parameters = new ArrayList<UMLParameter>(this.parameters);
+		parameters.remove(returnParameter);
+		JSONArray jArr = new JSONArray();
+				
+		for(int i=0; i < parameters.size(); i++) {
+			UMLParameter parameter = parameters.get(i);
+			if(parameter.getKind().equals("in")) {
+				jArr.put(parameter);
+			}
+		}
+
+		jObj.put("parameters", jArr);
+		jObj.put("return type", returnParameter.toString());
+
+		return jObj.toString();
 	}
 
 	public String toQualifiedString() {
