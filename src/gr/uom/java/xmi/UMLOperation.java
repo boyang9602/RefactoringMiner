@@ -541,7 +541,9 @@ public class UMLOperation implements Comparable<UMLOperation>, Serializable, Loc
 		}
 
 		jObj.put("parameters", jArr);
-		jObj.put("return type", returnParameter.toString());
+		if (returnParameter != null) {
+			jObj.put("return type", returnParameter.toString());
+		}
 
 		return jObj.toString();
 	}
