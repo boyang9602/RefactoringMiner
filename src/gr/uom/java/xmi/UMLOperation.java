@@ -522,7 +522,7 @@ public class UMLOperation implements Comparable<UMLOperation>, Serializable, Loc
 		return sb.toString();
 	}
 
-	public String toJSON() {
+	public JSONObject toJSON() {
 		JSONObject jObj = new JSONObject();
 		jObj.put("visibility", visibility);
 		jObj.put("abstract", isAbstract);
@@ -545,7 +545,7 @@ public class UMLOperation implements Comparable<UMLOperation>, Serializable, Loc
 			jObj.put("return type", returnParameter.toString());
 		}
 
-		return jObj.toString();
+		return jObj;
 	}
 
 	public String toQualifiedString() {
