@@ -84,6 +84,8 @@ public class ExtractOperationRefactoring implements Refactoring {
 		if(getRefactoringType().equals(RefactoringType.EXTRACT_AND_MOVE_OPERATION)) {
 			jObj.put("new class", extractedOperation.getClassName());
 		}
+		jObj.put("leftSideLocations", leftSide());
+		jObj.put("rightSideLocations", rightSide());
 		return jObj.toString();
 	}
 

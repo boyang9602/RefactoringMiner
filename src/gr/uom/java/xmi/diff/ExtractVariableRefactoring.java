@@ -66,6 +66,8 @@ public class ExtractVariableRefactoring implements Refactoring {
 		jObj.put("variable", variableDeclaration);
 		jObj.put("method", operation.toJSON());
 		jObj.put("class", operation.getClassName());
+		jObj.put("leftSideLocations", leftSide());
+		jObj.put("rightSideLocations", rightSide());
 		return jObj.toString();
 	}
 

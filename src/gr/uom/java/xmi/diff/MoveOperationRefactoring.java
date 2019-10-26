@@ -53,6 +53,8 @@ public class MoveOperationRefactoring implements Refactoring {
 		jObj.put("original class", originalOperation.getClassName());
 		jObj.put("new method", movedOperation.toJSON());
 		jObj.put("new class", movedOperation.getClassName());
+		jObj.put("leftSideLocations", leftSide());
+		jObj.put("rightSideLocations", rightSide());
 		return jObj.toString();
 	}
 
