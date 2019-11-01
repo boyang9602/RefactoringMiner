@@ -1,7 +1,8 @@
 # Note
 
 This is a modified [RefactoringMiner](https://github.com/tsantalis/RefactoringMiner) for mining refactoring activities and **extract refactored files**  
-It adds a `public void handle(String commitId, List<Refactoring> refactorings, Map<String, String> fileContentsBefore, Map<String, String> fileContentsCurrent)` interface in `RefactoringHandler` to support getting source code.  
+1. It adds a `public void handle(String commitId, List<Refactoring> refactorings, Map<String, String> fileContentsBefore, Map<String, String> fileContentsCurrent)` interface in `RefactoringHandler` to support getting source code.  
+2. Change the `Refactoring` `toJSON` method to make the original method and refactored method signature structural.  
 
 Table of Contents
 =================
